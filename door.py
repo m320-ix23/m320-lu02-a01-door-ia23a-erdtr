@@ -1,15 +1,15 @@
 class Door:
     """
-    Diese Klasse beschreibt eine Türe mit der Eigenschaft color (Farbe) und den Zuständen
-    door_is_open (für geöffnete Türe) sowie door_is_locked (für verriegelte Türe).
-    Die Türe überwacht die beiden Zustände und verhindert so Aktionen, die nicht möglich sind.
-    Das Verriegeln selber delegiert die Türe an ein Objekt vom Typ DoorLock (Türschloss).
+    Diese Klasse beschreibt eine Türe mit der Eigenschaft
+    door_is_open (für geöffnete Türe) sowie door_is_locked
+    Die Türe überwacht die beiden Zustände und verhindert
+    Das Verriegeln selber delegiert die Türe an ein Objekt
     """
 
     def __init__(self, ref2door_lock, base_color):
         """
         Erzeugt ein Tür-Objekt.
-        :param ref2door_lock: Referenz auf ein DoorLock-Objekt
+        :param ref2door_lock: Referenz auf ein DoorLock-
         :param base_color: Farbe der Tür
         """
         self._the_door_lock = ref2door_lock
@@ -20,7 +20,7 @@ class Door:
     def open_the_door(self):
         """
         Methode für das Öffnen der Türe.
-        Das ist aber nur möglich, wenn die Türe nicht verriegelt ist.
+        Das ist aber nur möglich, wenn die Türe nicht verr
         """
         if not self._door_is_locked:
             self._door_is_open = True
@@ -28,7 +28,7 @@ class Door:
     def close_the_door(self):
         """
         Methode für das Schließen der Türe.
-        Das geht immer, auch wenn die Türe schon geschlossen oder verriegelt ist.
+        Das geht immer, auch wenn die Türe schon geschloss
         Der Zustand ändert sich dann nicht.
         """
         self._door_is_open = False
