@@ -1,16 +1,16 @@
 class Door:
     """
-      Diese Klasse beschreibt eine Türe mit der Eigenschaft
-      door_is_open (für geöffnete Türe) sowie door_is_locked.
-      Die Türe überwacht die beiden Zustände und verhindert.
-      Das Verriegeln selber delegiert die Türe an ein Objekt.
-      """
+    Diese Klasse beschreibt eine Türe mit der Eigenschaft
+    door_is_open (für geöffnete Türe) sowie door_is_locked.
+    Die Türe überwacht die beiden Zustände und verhindert.
+    Das Verriegeln selber delegiert die Türe an ein Objekt.
+    """
 
     def __init__(self, ref2door_lock, base_color):
         """
         Erzeugt ein Tür-Objekt.
-        :param ref2door_lock:
-        :param base_color:
+        :param ref2door_lock: Referenz zu einem DoorLock-Objekt.
+        :param base_color: Farbe der Tür.
         """
         self._the_door_lock = ref2door_lock
         self.color = base_color
@@ -23,7 +23,7 @@ class Door:
         Das ist aber nur möglich, wenn die Türe nicht
         verriegelt ist.
         """
-        if self._door_is_locked == False:
+        if not self._door_is_locked:
             self._door_is_open = True
 
     def close_the_door(self):
@@ -39,7 +39,7 @@ class Door:
         Das ist nur möglich, wenn die Türe nicht offen ist.
         Für das Verriegeln ist aber das Türschloss zuständig.
         """
-        if self._door_is_open == False:
+        if not self._door_is_open:
             self._door_is_locked = self._the_door_lock.lock()
 
     def unlock_the_door(self):
@@ -55,9 +55,9 @@ class Door:
         """
         Schreibt alle Attribute in den StdOut.
         """
-        print(f'Türfarbe: {self.color}'
-              f'\nTüre offen: {self._door_is_open}'
-              f'\nTüre verriegelt: {self._door_is_locked}')
+        print(f'Türfarbe: {self.color}\n'
+              f'Türe offen: {self._door_is_open}\n'
+              f'Türe verriegelt: {self._door_is_locked}')
 
     @property
     def door_is_open(self):
